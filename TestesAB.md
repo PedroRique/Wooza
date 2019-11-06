@@ -1,4 +1,4 @@
-<h2 id="como-implementar-testes-ab">Como implementar Testes AB</h2>
+<h2 id="como-implementar-testes-ab">Como implementar Testes AB de Redirecionamento</h2>
 <p>Na Wooza, utilizamos a ferramenta Google Optimize. Ela permite realizar <strong>Testes AB</strong> de muitas formas, inclusive conta com um editor HTML que faz modificações na página e coloca em <strong>produção</strong>, acredite!</p>
 <p>Uma das formas de configurar o teste é o que chamamos de <strong>Teste de Redirecionamento</strong>. Consiste em adicionar um <strong>parâmetro</strong> na URL da versão variante e, no código, realizar as modificações caso esse parâmetro exista e seja igual ao valor estipulado.</p>
 <p>O parâmetro padrão da empresa é a letra <code>v</code>. Caso não exista <code>v</code> ou seu valor seja vazio estamos na versão original e nenhuma alteração de testes deve estar visível para o usuário.</p>
