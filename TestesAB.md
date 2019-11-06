@@ -43,8 +43,8 @@
 	}
 	...
 }
-
-function executaFuncionalidadeNova() {
+</code></pre>
+<pre><code>function executaFuncionalidadeNova() {
 	...
 }
 </code></pre>
