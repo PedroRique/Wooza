@@ -27,8 +27,8 @@
 <pre><code>&lt;div ng-if="this.params.v === '4'"&gt;
 ...
 &lt;/div&gt;
-
-&lt;div ng-if="this.params.v !== '4'"&gt;
+</code></pre>
+<pre><code>&lt;div ng-if="this.params.v !== '4'"&gt;
 ...
 &lt;/div&gt;
 </code></pre>
