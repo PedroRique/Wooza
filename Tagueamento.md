@@ -14,7 +14,7 @@
 <p><strong>Tagueamento</strong>: Inserir um marcador no código para que as informações cheguem até o GA. Esse marcador pode ser: disparar um evento, disparar um pageview, adicionar uma informação no dataLayer</p>
 <p><strong>Tagbook</strong>: Conhecido também como  <strong>documentação técnica</strong> ou até mesmo <em>tagging plan</em>. Consiste em um documento onde estará especificado tudo o que você precisa implementar.</p>
 <h3 id="tagueamento">Tagueamento</h3>
-<p>Antes de qualquer coisa, adicione o GTM na página. Solicite ao analista responsável o código do GTM para sua página (no gatsby utilize o plugin <code>gatsby-plugin-google-tagmanager</code> e desconsidere essa parte).</p>
+<p>Antes de qualquer coisa, adicione o GTM na página. Em casos onde são necessários dois GTMs, repita os códigos abaixo duas vezes (no gatsby utilize o plugin <code>gatsby-plugin-google-tagmanager</code> e desconsidere essa parte, colocando o plugin duas vezes para os casos com dois GTMs). Solicite ao analista responsável o código do GTM para sua página e substitua abaixo.</p>
 <p>Cole esse código o mais alto possível na tag <strong>&lt;head&gt;</strong> da página:</p>
 <pre><code>&lt;!-- Google Tag Manager --&gt;
 &lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -78,6 +78,22 @@ São eles:<br>
 <p>Geralmente, os nomes dos eventos e o valor de suas propriedades vão estar em <code>kebab-case</code>.  As propriedades em si são JavaScript, então por conversão usa-se <code>camelCase</code>.<br>
 A exceção se da para valores que são definidos pelo back-end, como por exemplo, o nome do plano, sua franquia etc. Para esses casos apenas passe o valor para o dataLayer como ele é.</p>
 <p>Quase sempre usamos uma <code>service</code> para realizar “disparos” (é como chamamos um push no dataLayer) com o mínimo de organização. Não saia disparando em qualquer lugar.</p>
+<h3 id="processo">Processo</h3>
+<p>Para tagueamentos internos é um pouco mais simples, conte com a ajuda dos WA’s da empresa e siga os padrões combinados. Porém, também existe o cenário em que as operadoras e suas respectivas agências vão solicitar o tagueamento da parte deles também. E, nesses casos, em caráter de exceção, devemos fugir do padrão e seguir a documentação enviada por eles.</p>
+<p>Aproveito para dizer que não devemos começar a fazer nenhum tagueamento sem um <strong>tagbook</strong> em mãos. Conte com seu <strong>PO</strong> para isso, ele deve chegar com a demanda redonda, com os documentos preparados e você deve entender <strong>exatamente</strong> o que fazer. Evite o retrabalho.</p>
+<p>Ficamos então com o processo estruturado dessa forma:</p>
+<ol>
+<li>Agência ou WA solicita o tagueamento ao PO.</li>
+<li>PO garante que o tagbook exista e esteja de acordo com o negócio.</li>
+<li>PO cria a tarefa no board com o documento anexado.</li>
+<li>Dev executa a tarefa e leva o código até homologação.</li>
+<li>Agência ou WA validam em homologação.</li>
+<li>Dev sobe o tagueamento para produção.</li>
+<li>Agência e WA fazem o double-check em produção.</li>
+</ol>
+<blockquote>
+<p>Lembrando que você sempre pode contar com a <strong>área de dados</strong> da empresa!</p>
+</blockquote>
 <h3 id="terminologia-dos-eventos">Terminologia dos Eventos</h3>
 <p>Dito como é feito tecnicamente, vamos para a parte semântica do tagueamento. Vamos dar nome aos bois!</p>
 <p>Todo evento tem os seguintes componentes:</p>
