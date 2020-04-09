@@ -7,15 +7,31 @@
 <p>Nunca ouviu falar sobre tagueamento? Não se preocupe, é bem mais simples do que você imagina. Vou começar introduzindo alguns conceitos básicos para então te ensinar como fazemos aqui na Wooza. Vem comigo!</p>
 <h3 id="conceitos-básicos">Conceitos básicos</h3>
 <p><strong>Google Analytics (GA)</strong>: Ferramenta que mede as métricas do site, como pageviews, cliques e conversões.</p>
-<p><strong>Google Tag Manager (GTM)</strong>: O nosso querido GTM, responsável por gerenciar todos os scripts da página. Antes dele, cada pageview era disparado utilizando uma função do GA e se fazia necessário a cada página do site.</p>
+<p><strong>Google Tag Manager (GTM)</strong>: O nosso querido GTM, responsável por gerenciar todos os scripts da página e seus eventos e pageviews.</p>
 <p><strong>Pageviews</strong>: Visualização de uma página, assim conseguimos mensurar as páginas mais acessadas, e fazer o funil das telas da modal, por exemplo (/dados-pessoais, /endereco, /pagamento etc).</p>
 <p><strong>Eventos</strong>: Acontecimentos na página, podendo ser uma resposta de uma API ou um abrir de modal. Tudo que para o nosso negócio seja interessante saber.</p>
 <p><strong>Datalayer</strong>: Array global inicializado pelos scripts do google. Não é um array qualquer, pois não podemos manipulá-lo além de fazer novas inserções. Como se trata de um array, podemos utilizar o método <code>push</code> para isso.</p>
 <p><strong>Tagueamento</strong>: Inserir um marcador no código para que as informações cheguem até o GA. Esse marcador pode ser: disparar um evento, disparar um pageview, adicionar uma informação no dataLayer</p>
 <p><strong>Tagbook</strong>: Conhecido também como  <strong>documentação técnica</strong> ou até mesmo <em>tagging plan</em>. Consiste em um documento onde estará especificado tudo o que você precisa implementar.</p>
-<h3 id="métodos-de-tagueamento">Métodos de Tagueamento</h3>
+<h3 id="tagueamento">Tagueamento</h3>
+<p>Antes de qualquer coisa, adicione o GTM na página (no gatsby utilize o plugin <code>gatsby-plugin-google-tagmanager</code>). Solicita ao analista responsável o código e simplesmente substitua no local informado abaixo:</p>
+<p>Cole esse código o mais alto possível na tag <strong>&lt;head&gt;</strong> da página:</p>
+<pre><code>&lt;!-- Google Tag Manager --&gt;
+&lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K5FZD4W');&lt;/script&gt;
+&lt;!-- End Google Tag Manager --&gt;
+</code></pre>
+<p>Além disso, cole esse código imediatamente após a tag de abertura <strong>&lt;body&gt;</strong>:</p>
+<pre><code>&lt;!-- Google Tag Manager (noscript) --&gt;
+&lt;noscript&gt;&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5FZD4W"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;&lt;/noscript&gt;
+&lt;!-- End Google Tag Manager (noscript) --&gt;
+</code></pre>
 <p>Vamos agora entender quais são os padrões Wooza para tagueamento. É de extrema importância seguir eles à risca, pois no GTM existem gatilhos para essas nomenclaturas específicas.</p>
-<h4 id="data-attributes">1. Data Attributes</h4>
+<h4 id="data-attributes">Data Attributes</h4>
 <p>Bem como os atributos existentes para que os QA’s façam suas validações de forma mais inteligente (data-test) também temos os nossos atributos e precisamos que sejam inseridos nos elementos mais importantes das páginas. Utilizamos esse método para elementos <strong>clicáveis</strong>, como botões, menu de navegação etc.<br>
 São eles:<br>
 <code>data-gtm-event-category</code>, <code>data-gtm-event-action</code> e <code>data-gtm-event-label</code>.</p>
@@ -27,7 +43,7 @@ São eles:<br>
     data-gtm-event-label="rotulo"
 &gt;Assine Já&lt;/button&gt;
 </code></pre>
-<h4 id="data-layer">2. Data Layer</h4>
+<h4 id="data-layer">Data Layer</h4>
 <p>Conhecido também como camada de dados, o dataLayer está presente em todas as páginas que os scripts do google estão presentes. O GTM se encarrega de iniciá-lo. Utilizamos esse método para elementos <strong>não clicáveis</strong>, como respostas de API, aparecimento de um elemento na tela etc. Seu padrão de eventos é o seguinte:</p>
 <pre><code>dataLayer.push({
 	event: "event",
