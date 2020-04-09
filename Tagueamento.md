@@ -14,7 +14,7 @@
 <p><strong>Tagueamento</strong>: Inserir um marcador no código para que as informações cheguem até o GA. Esse marcador pode ser: disparar um evento, disparar um pageview, adicionar uma informação no dataLayer</p>
 <p><strong>Tagbook</strong>: Conhecido também como  <strong>documentação técnica</strong> ou até mesmo <em>tagging plan</em>. Consiste em um documento onde estará especificado tudo o que você precisa implementar.</p>
 <h3 id="tagueamento">Tagueamento</h3>
-<p>Antes de qualquer coisa, adicione o GTM na página (no gatsby utilize o plugin <code>gatsby-plugin-google-tagmanager</code>). Solicita ao analista responsável o código e simplesmente substitua no local informado abaixo:</p>
+<p>Antes de qualquer coisa, adicione o GTM na página (no gatsby utilize o plugin <code>gatsby-plugin-google-tagmanager</code>). Solicite ao analista responsável o código do GTM para sua página.</p>
 <p>Cole esse código o mais alto possível na tag <strong>&lt;head&gt;</strong> da página:</p>
 <pre><code>&lt;!-- Google Tag Manager --&gt;
 &lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
