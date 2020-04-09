@@ -51,6 +51,13 @@ São eles:<br>
 }
 </code></pre>
 <p>Lembrando que o dataLayer é uma variável global da página, então pode ser acessado de qualquer lugar do código.</p>
+<h4 id="pageviews">Pageviews</h4>
+<p>Dentro desse método, também está incluído um push bem específico e super importante! O pageview! Como sabemos, as nossas aplicações são SPAs e com isso, não temos a função natural do Google Analytics de medir os pageviews.</p>
+<p>Por isso, precisamos que a cada mudança de rota (inclusive na primeira visualização) seja disparado um evento utilizando o dataLayer. Algumas tecnologias já fazem isso automaticamente (gatsby) mas normalmente isso é feito de forma manual. Todas as nossas páginas já tem isso implementado, mas para novos projetos, utilize o evento:</p>
+<pre><code>dataLayer.push({
+	event: 'route-change'
+})
+</code></pre>
 <h3 id="padrões">Padrões</h3>
 <p>Geralmente, os nomes dos eventos e o valor de suas propriedades vão estar em <code>kebab-case</code>.  As propriedades em si são JavaScript, então por conversão usa-se <code>camelCase</code>.<br>
 A exceção se da para valores que são definidos pelo back-end, como por exemplo, o nome do plano, sua franquia etc. Para esses casos apenas passe o valor para o dataLayer como ele é.</p>
@@ -93,5 +100,5 @@ label: <code>nao-encontrado</code></p>
 <p>Você pode estar se perguntando o porquê disso tudo, mas te garanto que do outro lado existe um profissional que só quer fazer o trabalho dele da melhor forma possível, então quero te <strong>contextualizar</strong> para que faça mais sentido e assim te motive a querer ajudar!</p>
 <p>Toda <strong>informação</strong> quer vai ao <strong>dataLayer</strong> vai se tornar uma arma na mão do analista. Quando informamos que o usuário escolheu boleto em vez de cartão de crédito nessa camada de dados, podemos medir qual das duas opções tem maior conversão (vende mais) e a partir disso pensar em como melhorar as vendas da opção menos desejada para que no total cresçamos. Não é incrível?</p>
 <p><strong>Taguear um botão</strong> nos permite dizer qual a porcentagem dos usuários realiza essa ação. Se entendermos que ele é pouquíssimo clicado, aquela demanda do seu board “Ajustar Layout do botão” pode desaparecer. Depois me agradece ;)</p>
-<p>As aplicações são <strong>muitas</strong> e eu levaria dias para escrever e você noites para ler, então, resumidamente, entenda. Cuide do seu produto, queria sempre melhorá-lo, entenda das regras de negócio e se preocupe com o usuário final. Isso pode te levar a um outro nível de profissional e como dizem por aí, você vai estar em OTO PATA MAR.</p>
+<p>As aplicações são <strong>muitas</strong> e eu levaria dias para escrever e você noites para ler, então, resumidamente, entenda: cuide do seu produto, queria sempre melhorá-lo, entenda das regras de negócio e se preocupe com o usuário final. Isso pode te levar a um outro nível de profissional e como dizem por aí, você vai estar em OTO PATA MAR.</p>
 
