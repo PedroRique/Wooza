@@ -21,12 +21,12 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K5FZD4W');&lt;/script&gt;
+})(window,document,'script','dataLayer','GTM-XXXXXXX');&lt;/script&gt;
 &lt;!-- End Google Tag Manager --&gt;
 </code></pre>
 <p>Além disso, cole esse código imediatamente após a tag de abertura <strong>&lt;body&gt;</strong>:</p>
 <pre><code>&lt;!-- Google Tag Manager (noscript) --&gt;
-&lt;noscript&gt;&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5FZD4W"
+&lt;noscript&gt;&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
 height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;&lt;/noscript&gt;
 &lt;!-- End Google Tag Manager (noscript) --&gt;
 </code></pre>
